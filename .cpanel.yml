@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/umwganki/public_html/
-    - /bin/cp public_html/* $DEPLOYPATH
+    - /bin/cp -r public_html/* $DEPLOYPATH
