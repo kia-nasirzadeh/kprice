@@ -88,10 +88,10 @@ var car = {
             lang: 'fa-IR',
             toolbar: [
                 // [groupName, [list of button]]
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['color', ['color']],
                 ['style', ['bold', 'italic', 'underline']],
                 ['fontsize', ['fontsize']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']]
             ]
         });
         $('#summernote').summernote('code', this.explanation)
