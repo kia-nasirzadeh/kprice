@@ -1,9 +1,16 @@
 <?php
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbName = "kprice";
+if ($_SERVER['SERVER_NAME'] == 'park-wash.ir') {
+    echo 'in server';
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbName = "kprice";
+} elseif ($_SERVER['SERVER_NAME'] == 'localhost') {
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbName = "kprice";
+}
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbName", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
