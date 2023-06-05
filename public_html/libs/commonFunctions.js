@@ -20,7 +20,6 @@ var car1 = {
     }
 };
 var stringifiedCar1 = JSON.stringify(car1);
-
 var car = {
     car: {},
     carName: "",

@@ -6,6 +6,6 @@ $(document).ready(function(){
     });
     $("#searchInput").focus();
     $(".list-group.collapse > .list-group-item").click(function () {
-      window.location.href = './../car/car.html';
+      window.location.href = './../car/car.php';
     })
 });

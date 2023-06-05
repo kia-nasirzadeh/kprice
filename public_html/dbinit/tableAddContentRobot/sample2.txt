@@ -1,0 +1,21 @@
+var car1 = {
+    carName: "c200-2014-2016",
+    pics: [
+        "file:///C:/Users/kia-nasirzadeh/Desktop/kia/4-%20kprice/assets/pics/2.jpg",
+        "file:///C:/Users/kia-nasirzadeh/Desktop/kia/4-%20kprice/assets/pics/3.jpg"
+    ],
+    explanation: "این یک توضیح اختیاری برای ماشین است",
+    kasebiItems: [
+        "خرید در 10 دلار در 20 سنت",
+        "خرید بی رنگش در 100 دلار یعنی 1.5میلیارد تومن"
+    ],
+    table: {
+            columns: ["gheymat", "badane", "rang", "karkard"],
+            deletedCols: ["rang"],
+            rows: [
+                {"gheymat": "1.45", "badane": "biRang", "rang": "sefid", "karkard": "22000"},
+                {"gheymat": "1.7", "badane": "biRang", "rang": "meshki", "karkard": "32000"},
+                {"gheymat": "1.2", "badane": "gelgir-aghab-stock", "rang": "abi", "karkard": "12000"}
+            ]
+    }
+};

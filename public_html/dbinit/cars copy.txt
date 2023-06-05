@@ -1,0 +1,191 @@
+{
+    "tucson-lm-2011-2015": [
+        {"$":"32.6","date":"1401-07-17","model":"2015","gheymat":"1550","badane":"khato-khash","kardard":"87","rang":"meshki", "trim":"meshki","keyless":"y","garm":"n","monitor-bozorg":"y" },
+    ],
+    "i20-montazh": [
+        {"$":"-","date":"1401-07-09","model":"96","gheymat":"850","badane":"separ, khato-khash","karkard":"67","rang":"meshki","trim":"ghahve-i","tip":"sade"}
+    ],
+    "sonata-hybrid-2018": [
+        {"$":"33.3","date":"1401-07-11","model":"2018","gheymat":"2200","badane":"bi-noghte","karkard":"0","rang":"meshki","trim":"meshki-parche","tip":"gl","monitor-bozorg":"n","pana":"n","full-radar":"n","infinity":"n","choob/charm":"n","360":"n","auto-park":"n","wireless-charger":"n","gram-sard":"n"},
+    ],
+    "mazda3new-89-98": [
+        {"$":"32.6","date":"1401-07-18","model":"98","gheymat":"1200","badane":"gelgir-rang","karkard":"48","rang":"sefid","tip":"4","saghf":"sunroof","sandali-barghi-ranande":"y","monitor":"fabrik"},
+    ],
+    "mazda3new-Hatchbacks-89-91": [
+        {"$":"32.5","date":"1401-07-19","model":"91","gheymat":"650","badane":"2-gelgir-rang, 2-dar-rang","karkard":"150","rang":"abi","tip":"3","saghf":"y","monitor":"-","shifter":"y"},
+    ],
+    "mazda3-86-89": [
+        {"$":"32.6","date":"1401-07-18","model":"89","gheymat":"540","badane":"2-gelgir-rang","karkard":"135","rang":"sefid","trim":"khakestari","tip":"1","saghf":"n","garm":"n"},
+    ],
+    "tiana-2009-2012-90-91": [
+        {"$":"32.5","date":"1401-07-19","model":"91","gheymat":"1180","badane":"kapoot-rang","karkard":"190","rang":"sefid","tip":"xl","saghf":"felez","trim":"kerem","airbag":"4","garm-sard":"2-0","monitor":"-","memory":"n"},
+    ],
+    "corolla-2008-2013": [
+        {"$":"32.9","date":"1401-07-26","model":"2012","gheymat":"950","badane":"kapoot-taviz, gelgir-rang","karkard":"23","rang":"sefid","tip":"xli","sunroof":"n","cruise":"n","monitor":"n","trim":"kerem"},
+    ],
+    "corrolla-2014-2017": [
+        {"$":"32.9","date":"1401-07-26","model":"2016","gheymat":"1800","badane":"bi-noghte","karkard":"45","rang":"sefid","tip":"xli","sunroof":"n","keyless":"y","trim":"meshki"},
+    ],
+    "elantra-2017-2018": [
+        {"$":"33.1","date":"1401-07-24","model":"2018","gheymat":"1600","badane":"bi-noghte","karkard":"25","rang":"meshki","monitor-bozorg":"n"},
+    ],
+    "elantra-2013-2016": [
+        {"$":"33.1","date":"1401-07-24","model":"2016","gheymat":"1100","badane":"kapoot-lise, dar-lise","karkard":"89","rang":"sefid","monitor-bozorg":"nasbi","monitor-consule":"n","garm-sard":"n","farmoon3halate":"n","keyless":"n","esp":"n","cruise":"n","sandali-barghi":"n", "trim":"meshki"},
+    ],
+    "azera-2018-2019": [
+        {"$":"33100","date":"1401-07-24","model":"2019","gheymat":"2900","badane":"bi-noghte","karkard":"0","rang":"sefid"},
+    ],
+    "Grandeur-2012-2014": [
+        {"$":"32.5","date":"1401-07-20","model":"2012","gheymat":"1580","badane":"bi-noghte","karkard":"195","rang":"sefid-sadafi","radar":"y","garm-sard":"5-2","masaashor":"y","airbag-zaanoyi":"y","trim":"meshki"}
+    ],
+    "azera-tg-2006-2011": [
+        {"$":"32.8","date":"1401-07-24","model":"2011","gheymat":"1120","badane":"3-lake-rang","karkard":"190","rang":"sefid","monitor":"y","doorbin-aghab":"y","trim-choob":"n","zedegi-paregi":"n","trim":"kerem"},
+    ],
+    "lexus-es-350-2008-2012": [
+        {"$":"32.8","date":"1401-08-03","model":"2011","gheymat":"2150","badane":"bi-rang","karkard":"190","rang":"khakestari","radar":"jelo"},
+    ],
+    "lexus-es-250-2013-2016": [
+        {"$":"32.8","date":"1401-08-04","model":"2015","gheymat":"4100","badane":"bi-noghte","karkard":"30","rang":"ghahve-i","garm-sard":"y","memory2taraf":"y","digitalAghab":"y","markLevinson":"y","radar":"y","trim":"meshki"},
+    ],
+    "toyota-aurion-grande-2009-2011": [
+        {"$":"32.8","date":"1401-08-04","model":"2011","gheymat":"1720","badane":"gelgir-rang","karkard":"182","rang":"sefid-sadafi","monitor-bozorg":"nasbi","bal-aghab":"n","trim":"kerem"},
+    ],
+    "toyota-aurion-grande-2012-2013": [
+        {"$":"33.1","date":"1401-08-08","model":"2013","gheymat":"1900","badane":"kapoot-rang, dar-rang, 2gelgir-rang","karkard":"180","rang":"sefid","trim": "kerem","saghf":"sunroof","monitor-bozorg":"y","keyless":"y","doorbin-aghab":"y","sensor-park":"y","parde-aghab":"y","bale-aghab":"y"}
+    ],
+    "toyota-aurion-sport-2012-2013": [
+        {"$":"33.1","date":"1401-08-08","model":"2013","gheymat":"2250","badane":"dar-rang","karkard":"170","rang":"sefid","saghf":"sunroof","trim":"kerem","monitor-bozorg":"y","keyless":"y","doorbin-aghab":"y","sensor-park":"y","parde-aghab":"y","bal-aghab":"y"}
+    ],
+    "kia-cadenza-2011-2013": [
+        {"$":"33.5","date":"1401-08-10","model":"2012","gheymat":"1400","badane":"4-lake-rang","karkard":"108","rang":"sefid","monitor-bozorg":"y","garm-sard":"2-2","infinity":"y","masazhor":"y","sandali-barghi":"y","memory":"y","mouse-aghab":"y","trim":"meshki"},
+    ],
+    "kia-cerato-varedati-2010-2013-1600cc": [
+        {"$":"33.5","date":"1401-08-10","model":"2013","gheymat":"780","badane":"1-lise-gelgir","karkard":"105","rang":"sefid-sadafi","keyless":"y","doorbin-aghab":"n","garm-jelo":"y","pedal-shifter":"y","cruise":"y","trim":"meshki"},
+    ],
+    "kia-cerato-varedati-2010-2013-2000cc": [
+        {"$":"33.5","date":"1401-08-11","model":"2013","gheymat":"720","badane":"dor-rang","karkard":"140","rang":"sefid","keyless":"y","doorbin-aghab":"y","garm-jelo":"n","pedal-shifter":"y","monitor-bozorg":"n","trim":"meshki"},
+    ],
+    "kia-cerato-varedati-2014-2016": [
+        {"$":"34","date":"1401-08-11","model":"2016","gheymat":"1300","badane":"bi-noghte","karkard":"100","rang":"sefid","garm-sard":"5-1","godi-kamar":"y"},
+    ],
+    "kia-cerato-varedati-2017-2018": [
+        {"$":"36.2","date":"1401-08-17","model":"2018","gheymat":"1850","badane":"bi-noghte","karkard":"20","rang":"meshki","garm-sard":"5-2","radar-blindSpot":"y","sandogh-barghi":"n","trim":"meshki"},
+    ],
+    "kia-cerato-dande-montazh-1600cc": [
+        {"$":"36.2","date":"1401-08-17","model":"97","gheymat":"800","badane":"bi-noghte","karkard":"61","rang":"sefid","tip":"sade","trim":"meshki"},
+    ],
+    "kia-cerato-auto-montazh-2000cc": [
+        {"$":"35.5","date":"1401-08-23","model":"98","gheymat":"1050","badane":"kapoot-lise","karkard":"74","rang":"sefid","tip":"optional","trim":"meshki"},
+    ],
+    "kia-cerato-Koup-2012-2013": [
+        {"$":"35.5","date":"1401-08-24","model":"2013","gheymat":"750","badane":"dor-rang","karkard":"211","rang":"sefid"},
+    ],
+    "kia-cerato-Koup-2014-2016": [
+        {"$":"36","date":"1401-08-25","model":"2016","gheymat":"1350","badane":"1-dar-rang","karkard":"65","rang":"ghermez","trim":"meshki","gearbox":"auto"}
+    ],
+    "passat-2018": [
+        {"$":"36","date":"1401-08-25","gheymat":"2800","badane":"1-gelgir-rang","karkard":"38","rang":"sefid","garm-sard":"4-0"},
+    ],
+    "tiguan-2018": [
+        {"$":"36","date":"1401-08-25","gheymat":"5000","badane":"bi-noghte","karkard":"0","rang":"sefid","kit-sookht":"y"},
+    ],
+    "koleos-2017-2018": [
+        {"$":"35.5","date":"1401-08-25","model":"2017","gheymat":"2400","badane":"gelgir-lise","karkard":"90","rang":"sefid","auto-park":"n","auto-trunk":"y","trim":"meshki"},
+    ],
+    "x3-2011-2014": [
+        {"$":"35.3","date":"1401-09-01","model":"2014","gheymat":"3200","badane":"1-lise-dar","karkard":"90","rang":"sefid","m-fabrik":"y","headup":"n","shifter":"y","memory2taraf":"y","harman":"n","trim":"kerem"},
+    ],
+    "x3-2015-2017": [
+        {"$":"35.3","date":"1401-09-01","model":"2015","gheymat":"3800","badane":"bi-noghte","karkard":"50","rang":"ghermez","m-fabrik":"y","headup":"y","harman":"y","trim":"sefid"},
+    ],
+    "320-2012-2015": [
+        {"$":"36","date":"1401-09-13","model":"2014","gheymat":"2400","badane":"bi-noghte","karkard":"87","rang":"ghahve-i","saghf":"felez","m-fabrik":"n","shifter":"y","monitor-bozorg":"n","garm":"n","trim":"kerem","mouse-bozorg":"-"},
+    ],
+    "523-2011-2012": [
+        {"$":"35.5","date":"1401-09-06","model":"2011","gheymat":"2900","badane":"bi-noghte","karkard":"130","rang":"meshki","monitor-bozorg":"y","m-fabrik":"y","trim":"mooka"},
+    ],
+    "528-2012-2016": [
+        {"$":"35.5","date":"1401-09-09","model":"2013","gheymat":"3200","badane":"1-dar-stock","karkard":"130","rang":"sefid","m-fabrik":"y","kilid":"0","monitor-bozorg":"n","360":"n","headup":"n","vacium":"n","garm":"n","trim":"mooka"},
+    ],
+    "520-2011-2016": [
+        {"$":"35.5","date":"1401-09-02","model":"2013","gheymat":"2900","badane":"gelgir-lise","karkard":"150","rang":"sefid","m-fabrik":"n","saghf":"sunroof","kilid":"0","monitor-bozorg":"y","360":"y","mouse-bozorg":"n","adaptive":"n","headup":"n","memory":"y","garm":"n","trim":"kerem"},
+    ],
+    "420-2014-2016": [
+        {"$":"39","date":"1401-09-13","model":"2015","gheymat":"4000","badane":"bi-noghte","karkard":"70","rang":"sefid","trim":"maron","kilid":"0","monitor-bozorg":"y","360":"y","headup":"y","shifter":"y","vacium":"y","m-fabrik":"y","garm":"-","saghf":"sunroof"}
+    ],
+    "428-grand-2014-2016": [
+        {"$":"37","date":"1401-09-22","model":"2015","gheymat":"4500","badane":"bi-noghte","karkard":"43","rang":"sefid","kilid":"3jb","m-fabrik":"n","trim":"mooka"},
+    ],
+    "c200-2008-2011": [
+        {"$":"37","date":"1401-09-22","model":"2008","gheymat":"1700","badane":"3-tike-stoke-jelo","karkard":"170","rang":"noghre-i","amg-fabrik":"y","harman":"n","memory2taraf":"y"},
+    ],
+    "c200-2012-2014": [
+        {"$":"38","date":"1401-09-22","model":"2013","gheymat":"3300","badane":"kapoot-lise, sandogh-lise","karkard":"100","rang":"sefid","amg-fabrik":"y","harman":"y","memory2taraf":"y","garm-sard":"2-2","trim":"meshki"},
+    ],
+    "e350-korok-2010-2013": [
+        {"$":"31.7","date":"1401-06-31","model":"2013","gheymat":"3850","badane":"gelgir-rang","karkard":"85","rang":"sefid","kit-amg":"y","harman":"-","radar":"-","garm-sard":"2-0","masaashor":"y"},
+    ],
+    "e350-coupe-2010-2013": [
+        {"$":"31.7","date":"1401-06-31","model":"2010","gheymat":"2500","badane":"bi-noghte","karkard":"118","rang":"khakestari","trim":"maron","kit-amg":"n","dynamic-seat":"y","harman":"n","masaashor":"n","memory2taraf":"n","keyless":"n","nightVision":"n","garm-sard":"-","radar":"n","2NafarAghab":"y"},
+    ],
+    "e350-2010-2013": [
+        {"$":"31.7","date":"1401-06-31","model":"2013","gheymat":"4300","badane":"bi-noghte","karkard":"65","rang":"sefid","harman":"n","masaashor":"y","parde-aghab":"y","parde-dor":"y","garm-sard":"y","night-vision":"y","dynamic-seat":"y","tanzim-ertefa":"n","radar":"gnb","trim":"mooka-maron"},
+    ],
+    "e300-2010-2013": [
+        {"$":"31.7","date":"1401-06-30","model":"2013","gheymat":"3720","badane":"gelgir-lise","karkard":"80","rang":"sefid","kit-amg":"n","harman":"y","sandogh-barghi":"y","radar":"jb","garm-sard":"2-0","nightVision":"y","vacium-kamar":"y","parde-janebi":"y","trim":"meshki"},
+    ],
+    "e200-2010-2013": [
+        {"$":"31.7","date":"1401-06-30","model":"2013","gheymat":"2800","badane":"2-lise-gelgir","karkard":"132","rang":"meshki","kit-amg":"n","pana":"n","harman":"n","garm-sard":"n","parde-janebi":"n","keyless":"n","radar":"n","trim":"meshki"},
+    ],
+    "sonata-nf-2006-2009-2400dande": [
+        {"$":"33.1","date":"1401-07-09","model":"2009","gheymat":"670","badane":"gelgir-rang","karkard":"160","rang":"noghre-i","doorbin-aghab":"y","cruise":"y","10airbag":"y","sunroof":"y","zadegi-paregi":"y"},
+    ],
+    "sonata-nf-2006-2008-2400auto": [
+        {"$":"33.1","date":"1401-07-09","model":"2008","gheymat":"600","badane":"dor-rang","karkard":"300","rang":"nok-medadi","full/nime":"full","monitor":"n","garm":"y","sunroof":"y","sandali":"y","zadegi-paregi":"n","trim":"parche"},
+    ],
+    "sonata-nf-2009-2010-2400auto": [
+        {"$":"33.1","date":"1401-07-10","model":"2010","gheymat":"880","badane":"bi-noghte","karkard":"137","rang":"sefid","full/nime":"full","monitor":"y, nasbi","garm-jelo":"y","sandali":"y","zadegi-paregi":"n","trim-choob":"y","trim":"meshki"},
+    ],
+    "santafe-2014-2015": [
+        {"$":"31.8","date":"1401-07-03","model":"2015","gheymat":"1700","badane":"gelgir-rang","karkard":"128","rang":"sefid","2def":"y","saghf":"pana","sandogh-barghi":"y","airbag":"2","sub":"y","garm-sard":"n","autopark":"n","infinity":"n","option":"nime","trim":"meshki"},
+    ],
+    "santafe-2016-2018": [
+        {"$":"32.1","date":"1401-07-04","model":"2017","gheymat":"2550","badane":"bi-noghte","karkard":"33","rang":"khakestari","option":"full","2def":"y","radar":"k","garm-sard":"4-2","360":"y","infinity":"y","shifter":"y","sub":"y","trim":"meshki"},
+    ],
+    "tucson-tl-2016-2018": [
+        {"$":"32.6","date":"1401-07-17","model":"2017","gheymat":"2100","badane":"bi-noghte","karkard":"46","rang":"sefid","trim":"meshki","radar":"j","autopark":"n","tormoz-barghi":"y","autoHold":"y","cheraaghshoor":"n","sandogh":"y","garm-sard":"5-2","monitor-bozorg":"y"},
+    ],
+    "sorento-2010-2012": [
+        {"$":"32.9","date":"1401-07-27","model":"2012","gheymat":"1650","badane":"bi-noghte","karkard":"200","rang":"sefid","saghf":"pana","monitor-bozorg":"n","monitor-aghab":"n","garm-sard":"2-0","trim":"meshki"},
+    ],
+    "sorento-2015-2017-gdi": [
+        {"$":"32.8","date":"1401-08-01","model":"2016","gheymat":"2450","badane":"bi-noghte","karkard":"45","rang":"sefid","sensor360":"n","360":"y","monitor-bozorg":"n","radar":"n","trim":"meshki"},
+    ],
+    "sorento-2013-mid-face": [
+        {"$":"32.9","date":"1401-07-27","model":"2013","gheymat":"1930","badane":"bi-noghte","karkard":"155","rang":"meshki","keyless":"y","saghf":"pana","monitor-bozorg":"y","monitor-aghab":"n","memory-sandali":"n","infinity":"y","7nafare":"y","trim":"meshki"},
+    ],
+    "sorento-2015-2018-gt": [
+        {"$":"32.8","date":"1401-08-01","model":"2017","gheymat":"2850","badane":"1-gelgir-rang","karkard":"72","rang":"sefid","radar":"t","infinity":"-","trim":"maron"},
+    ],
+    "sonata-nf-2006-2008-3300": [
+        {"$":"33.1","date":"1401-07-10","model":"2007","gheymat":"750","badane":"chand-lise","karkard":"230","rang":"sefid","full/nime":"full","monitor":"y, nasbi","sandali":"y","zadegi-paregi":"n","infinity":"n","10air":"y","trim-choob":"y","parde-aghab":"n","trim":"kerem"},
+    ],
+    "sonata-yf-2011-2012": [
+        {"$":"33.1","date":"1401-07-11","model":"2012","gheymat":"1100","badane":"1-gelgir-rang","karkard":"140","rang":"sefid","monitor":"n","garm-sard":"4-2","air-zaanooyi":"y","memory":"y","sub-jelo-aghab":"y","trim":"meshki"},
+    ],
+    "sonata-yf-2013-2014": [
+        {"$":"33.1","date":"1401-07-11","model":"2014","gheymat":"1300","badane":"bi-noghte","karkard":"100","rang":"meshki","full/nime/low/lux":"nime","memory":"y","saghf":"pana","sub-jelo-aghab":"y","garm-sard":"n","air":"10","infinity":"-","trim":"meshki"},
+    ],
+    "sonata-lf-2015-2017": [
+        {"$":"33.3","date":"1401-07-11","model":"2015","gheymat":"1500","badane":"1-dar-lise","karkard":"75","rang":"meshki","full/nime":"full","sandali":"y","memory":"y","fullAir":"y","garm-sard":"5-2","infinity":"n","sub":"n","parde-aghab":"y","parde-janebi":"y","trim":"meshki"}
+    ],
+    "sonata-lf-2017-2018-hybrid": [
+        {"$":"33.3","date":"1401-07-11","model":"2017","gheymat":"1600","badane":"1-gelgir-rang, kapoot-rang","karkard":"110","rang":"meshki","infinity":"y","sub":"y"}
+    ],
+    "328-2013-2015": [
+        {"$":"32.6","date":"1401-07-17","model":"2013","gheymat":"2250","badane":"bi-noghte","karkard":"87","rang":"ghahve-i","kilid":"3","360":"y","monitor-bozorg":"y","kit-m-fabrik":"n","trim-choob/aluminium":"choob","memory":"y","keyless":"y","shifter":"y","harman":"y","headup":"y","saghf":"felez","trim":"kerem"}
+    ],
+    "rav4-2016-2018": [
+        {"$":"31.6","date":"1401-07-06","model":"2016","gheymat":"2350","badane":"1-gelgir-rang","karkard":"115","rang":"sefid","sandali":"n","cheraaghshoor":"n","garm":"n","monitor-aghab":"y","monitor-fulltouch":"y","trim":"ghahve-i"}
+    ]
+}
