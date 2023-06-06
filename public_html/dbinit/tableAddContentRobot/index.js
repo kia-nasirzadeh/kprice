@@ -74,7 +74,7 @@ function getPics (baseDir, carName) {
     let pics = [];
     wholeDir.forEach(pic => {
         let isThisCar = pic.search(carName)
-        if (isThisCar == 0) pics.push("http://127.0.0.1/dashboard/kprice/public_html/assets/pics" + '/' + pic);
+        if (isThisCar == 0) pics.push("http://park-wash.ir/assets/pics" + '/' + pic);
     })
     return pics;
 }
