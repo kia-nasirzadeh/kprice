@@ -43,7 +43,7 @@ try {
         </div>
         <div class="row">
             <div class="col m-2">
-                    <div class="list-group list-group-root well">
+                    <div id="mainListDiv" class="list-group list-group-root well">
                         <?php
                         foreach ($carsToShow as $carName => $carTypesArray) {
                         ?>
@@ -74,6 +74,9 @@ try {
     </div>
     <script src="./../../libs/jquery.js"></script>
     <script src="./../../libs/bootstrap-3.3.5/dist/js/bootstrap.min.js"></script>
+    <script>
+        var searchAPI = "<?= $searchApi ?>"
+    </script>
     <script src="./search.js"></script>
 </body>
 </html>

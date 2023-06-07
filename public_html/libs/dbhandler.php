@@ -102,7 +102,8 @@ class DbHandler {
             $content['pics'] = $targetPics;
         }
 
-        return json_encode($content);
+        $content = json_encode($content, JSON_UNESCAPED_UNICODE);
+        return $content;
     }
     public function search ($needle) {
         $stmt = $this->dbh->prepare("SELECT * FROM cars WHERE `group` LIKE :needle OR `subgroup` LIKE :needle OR `FullName` LIKE :needle");
@@ -113,6 +114,3 @@ class DbHandler {
         return $result;
     }
 }
-$dbhandler = new DbHandler();
-var_dump($dbhandler->addRecord('x3x3dddddsx32sd', 'b', '{"علی":"gholi"}'));
-// add content should have 'N
