@@ -97,8 +97,8 @@ $rows = $table->rows;
                         جدول موارد بازدید شده
                     </span>
                     <span tabindex="-1" id="addRow" class="btn-sm btn-primary ">اضافه کردن سطر</span>
-                    <span id="moverow" class="btn-sm btn-secondary">جابجایی سطر ها</span>
-                    <span id="highlight" class="btn-sm btn-secondary">مقایسه سطر ها</span>
+                    <span id="moverow" class="btn-sm btn-secondary" style="cursor: pointer">جابجایی سطر ها</span>
+                    <span id="highlight" class="btn-sm btn-secondary" style="cursor: pointer">مقایسه سطر ها</span>
                 </div>
                 <div class="p-2 bg-dark text-white">
                     <table id="table" class="table table-bordered table-responsive">

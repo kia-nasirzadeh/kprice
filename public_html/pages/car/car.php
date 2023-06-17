@@ -32,21 +32,23 @@ $content = json_decode($content);
     <title><?= $fullName ?></title>
 </head>
 <body>
-    <div class="container-flow">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Afraz Inc.</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div class="navbar-nav">
-                <a class="nav-item nav-link" href="./../search/search.php">search</a>
-                <a class="nav-item nav-link" href="./../admin/manipulate/manipulate.php?car=<?= $fullName ?>">manipulate this</a>
-              </div>
-            </div>
-          </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">Afraz Inc.</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="./../search/search.php">search</a>
+                    <a class="nav-item nav-link" href="./../admin/manipulate/manipulate.php?car=<?= $fullName ?>">manipulate this</a>
+                </div>
+                </div>
+            </nav>
+        </div>
         <div class="row d-flex justify-content-center">
-            <div class="col-lg-8 mb-2">
+            <div class="col-lg-6 mb-2">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="border: 1px solid #999; border-radius: 5px; padding: 10px;">
                     <div id="imgs" class="carousel-inner">
 
@@ -64,27 +66,29 @@ $content = json_decode($content);
             </div>
         </div>
         <div class="row d-flex justify-content-center">
-            <div class="col-lg-8">
+            <div class="col-lg-12">
                 <p id="explanation" class="text-dark text-right" style="border: 1px solid #999; border-radius: 5px; padding: 10px;">
                     
                 </p>
             </div>
         </div>
         <div class="row d-flex justify-content-center">
-            <div class="col-lg-8 mb-2">
-                <p id="kasebiItemsContainer" class="text-white text-right bg-secondary" style="border: 1px solid #999; border-radius: 5px; padding: 10px;">
-                    <span id="kasebiItems" class="bg-dark text-danger d-inline-block w-100 p-2 mb-3 rounded" style="font-weight: bold;">
+            <div class="col-lg-12 mb-2">
+                <p id="kasebiItemsContainer" class="text-white text-right bg-dark" style="border: 1px solid #999; border-radius: 5px; padding: 10px;">
+                    <span id="kasebiItems" class="bg-dark text-light d-inline-block w-100 p-2 mb-3 rounded" style="font-weight: bold;">
                         خرید کاسبی
                     </span>
                 </p>
             </div>
         </div>
         <div class="row d-flex justify-content-center">
-            <div class="col-lg-8 mb-2">
+            <div class="col-lg-12 mb-2">
                 <div class="text-white text-right bg-dark" style="border: 1px solid #999; border-radius: 5px; padding: 10px;">
-                    <span class="bg-white text-dark d-inline-block w-100 p-2 mb-3 rounded" style="font-weight: bold;">
+                    <span class="bg-dark text-light d-inline-block w-100 p-2 mb-3 rounded" style="font-weight: bold;">
                         جدول موارد بازدید شده
                     </span>
+                    <span id="moverow" class="btn-sm btn-secondary" style="cursor: pointer">جابجایی سطر ها</span>
+                    <span id="highlight" class="btn-sm btn-secondary" style="cursor: pointer">مقایسه سطر ها</span>
                 </div>
                 <div class="p-2 bg-dark text-white">
                     <table id="table" class="table table-bordered table-responsive">
