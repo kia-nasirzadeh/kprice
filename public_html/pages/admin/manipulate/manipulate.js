@@ -639,7 +639,6 @@ class XHR
         }
         formdata.append('name', carName);
         let xhr = new XMLHttpRequest();
-        console.log(this.getApiUrl());
         xhr.open('post', `${this.getApiUrl()}/pages/admin/manipulate/uploadProcessor.php`);
         xhr.responseType = 'json';
         xhr.onloadend = this.loadEnd.bind(xhr, updateClass);

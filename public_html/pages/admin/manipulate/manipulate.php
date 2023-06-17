@@ -167,7 +167,7 @@ $rows = $table->rows;
 
 
     $picsArray = "[";
-    if ($pics != "") {
+    if ($pics != "" && $pics != []) {
         foreach ($pics as $key => $pic) {
             if ($key === array_key_last($pics)) {
                 $picsArray .= '"' . $pic . '"]';

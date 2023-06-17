@@ -127,9 +127,11 @@ class DbHandler {
     public function addPics ($imgs, $targetDir, $carName, $delPicsArray) {
         $ok = true;
         foreach ($delPicsArray as $picToDelName) {
-            $delResult = $this->delPic($targetDir, $picToDelName, $carName);
-            if (!$delResult) $ok = false;
-            ErrHandler::addErr('can not delete specified pics');
+            $delResult = $this->delPic($targetDir, $picToDelName);
+            if (!$delResult) {
+                $ok = false;
+                ErrHandler::addErr('can not delete specified pics');
+            }
         }
         if (!$ok) return json_encode(ErrHandler::$errors);
         foreach ($imgs as $img) {
@@ -139,7 +141,12 @@ class DbHandler {
         if ($ok) return json_encode($okAnswer);
         else return json_encode(ErrHandler::$errors);
     }
-    private function delPic ($targetDir, $picToDelName, $carName) {
+    private function delPic ($targetDir, $picToDelName) {
+        $targetFile = $targetDir . DIRECTORY_SEPARATOR . $picToDelName;
+        if (unlink($targetFile)) return true;
+        else return false;
+    }
+    private function delPic2 ($targetDir, $picToDelName, $carName) {
         $name = $carName . '-' . $picToDelName;
         $targetFile = $targetDir . DIRECTORY_SEPARATOR . $name;
         if (unlink($targetFile)) return true;
@@ -151,7 +158,7 @@ class DbHandler {
             $targetDir = $picArr[0];
             $picToDelName = $picArr[1];
             $carName = $picArr[2];
-            if (!$this->delPic($targetDir, $picToDelName, $carName)) $ok = false;
+            if (!$this->delPic2($targetDir, $picToDelName, $carName)) $ok = false;
         }
         if (!$ok) return json_encode(['ok' => false, 'message' => 'some pics doesn\'t remove']);
         else return json_encode(['ok' => true, 'message' => 'all pics removed']);
