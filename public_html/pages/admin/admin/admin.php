@@ -13,14 +13,14 @@
             <div class="row">
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100">
                     <a href="#" class="navbar-brand">kPrice-Admin</a>
-                    <span class="text-warning mr-2">hi kia</span>
+                    <span class="text-warning mr-2">hi kia/hossein</span>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainnav">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="navbar-collapse collapse" id="mainnav">
                         <div class="navbar-nav">
                             <a href="./../../search/search.php" class="nav-item nav-link">search</a>
-                            <a href="#" class="nav-itm nav-link">log-out</a>
+                            <a href="#" class="nav-itm nav-link" onclick="javascript:alert('لاگ سیستم هنوز درست نشده')">log-out</a>
                         </div>
                     </div>
                 </nav>
@@ -32,14 +32,14 @@
                     </a>
                 </div>
                 <div class="col-6 col-md-4 col-lg-3 p-1">
-                    <a href="./../../search/search.php" class="border w-100 text-center rounded px-1 py-3 btn btn-primary" id="add-car">
+                    <button href="./../../search/search.php" class="border w-100 text-center rounded px-1 py-3 btn btn-primary" id="add-car" disabled>
                         manipulate a car
-                    </a>
+                    </button>
                 </div>
                 <div class="col-6 col-md-4 col-lg-3 p-1">
-                    <div class="border w-100 text-center rounded px-1 py-3 btn btn-primary" id="changePass">
+                    <button class="border w-100 text-center rounded px-1 py-3 btn btn-primary" id="changePass" disabled>
                         change password
-                    </div>
+                    </button>
                 </div>
             </div>
             <div class="row d-none justify-content-center bg-warning" id="passChangerContainer">
