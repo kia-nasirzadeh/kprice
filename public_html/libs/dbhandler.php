@@ -1,11 +1,19 @@
 <?php
+// set_error_handler('handleWarnings', E_WARNING);
+function handleWarnings ($errno, $errstr) {
+    echo "we have warning\n";
+    echo "$errno\n";
+    echo "$errstr\n";
+}
 class DbHandler {
     private $dbh;
     private $picsPath;
+    private $picsAbsPath;
     public function __construct ()
     {
-        require_once __DIR__ . DIRECTORY_SEPARATOR . './../config.php';
+        require __DIR__ . DIRECTORY_SEPARATOR . './../config.php';
         $this->picsPath = $picsPath;
+        $this->picsAbsPath = $picsAbsPath;
         $pdo_attrs = [ 
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ];
@@ -67,10 +75,10 @@ class DbHandler {
         } else throw new Exception('in deleteRecord in no if-else');
     }
     public function updateRecord($by, $key, $group, $subgroup, $content) {
-        if (!$this->recordExists($by, $key)) return false;
+        if (!$this->recordExists($by, $key)) return json_encode(['ok' => false]);
         if ($content == '') $content = '{}';
         $fullname = $group . '-' . $subgroup;
-        if (!$content = $this->populatePicsOfContent(true, $content, $fullname)) return false;
+        if (!$content = $this->populatePicsOfContent(true, $content, $fullname)) return json_encode(['ok' => false]);
         if ($by == 'id') {
             $stmt = $this->dbh->prepare("UPDATE cars SET `group`=:group, `subgroup`=:subgroup, `content`=:content WHERE id=:key");
             $stmt->bindParam(':group', $group);
@@ -86,7 +94,7 @@ class DbHandler {
             $stmt->bindParam(':content', $content);
             $stmt->bindParam(':key', $key);
             $result = $stmt->execute();
-            return $result;
+            return json_encode(['ok' => true]);
         } else throw new Exception('in updateRecord in no if-else');
     }
     private function populatePicsOfContent ($stringified, $content, $fullname) {
@@ -99,7 +107,10 @@ class DbHandler {
         if ($content === null) { // json_decoder can not decode $content since it's invalid json or null
             return false;
         } else { //json_decoder decoded $content, although it maybe empty
-            $content['pics'] = $targetPics;
+            $content['pics'] = [];
+            foreach ($targetPics as $targetPic) {
+                $content['pics'][] = $this->picsAbsPath . $targetPic;
+            }
         }
 
         $content = json_encode($content, JSON_UNESCAPED_UNICODE);
@@ -112,5 +123,74 @@ class DbHandler {
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
+    }
+    public function addPics ($imgs, $targetDir, $carName, $delPicsArray) {
+        $ok = true;
+        foreach ($delPicsArray as $picToDelName) {
+            $delResult = $this->delPic($targetDir, $picToDelName, $carName);
+            if (!$delResult) $ok = false;
+            ErrHandler::addErr('can not delete specified pics');
+        }
+        if (!$ok) return json_encode(ErrHandler::$errors);
+        foreach ($imgs as $img) {
+            if (!$this->addPic($img, $targetDir, $carName)) $ok = false;
+        }
+        $okAnswer = [ "ok" => true ];
+        if ($ok) return json_encode($okAnswer);
+        else return json_encode(ErrHandler::$errors);
+    }
+    private function delPic ($targetDir, $picToDelName, $carName) {
+        $name = $carName . '-' . $picToDelName;
+        $targetFile = $targetDir . DIRECTORY_SEPARATOR . $name;
+        if (unlink($targetFile)) return true;
+        else return false;
+    }
+    public function delPics ($picsArr) {
+        $ok = true;
+        foreach ($picsArr as $picArr) {
+            $targetDir = $picArr[0];
+            $picToDelName = $picArr[1];
+            $carName = $picArr[2];
+            if (!$this->delPic($targetDir, $picToDelName, $carName)) $ok = false;
+        }
+        if (!$ok) return json_encode(['ok' => false, 'message' => 'some pics doesn\'t remove']);
+        else return json_encode(['ok' => true, 'message' => 'all pics removed']);
+    }
+    public function addPic ($img, $targetDir, $carName) {
+        $this->checkPic($img, $targetDir, $carName);
+        $name = $carName . '-' . basename($img['name']);
+        $targetFile = $targetDir . DIRECTORY_SEPARATOR . $name;
+        if (!ErrHandler::$isPicOk) return false;
+        if (move_uploaded_file($img['tmp_name'], $targetFile)) return true;
+        else return false;
+    }
+    public function generateRandomString ($length = 10) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[random_int(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+    private function checkPic ($imgFile, $targetDir, $carName) {
+        $name = $carName . '-' . basename($imgFile['name']);
+        $targetFile = $targetDir . DIRECTORY_SEPARATOR . $name;
+        $format = pathinfo($targetFile, PATHINFO_EXTENSION);
+        if ($imgFile['size'] > 3000000) ErrHandler::addErr('size bigger than 1Mb');
+        if ($imgFile['size'] <= 0) ErrHandler::addErr('size is zero or less!');
+        if ($imgFile['error'] != 0) ErrHandler::addErr('$_FILES error is not 0');
+        if (file_exists($targetFile)) ErrHandler::addErr('image already exists');
+        if (!getimagesize($imgFile['tmp_name'])) ErrHandler::addErr('image is fake');
+        if (!in_array($format, ['jpg', 'png', 'jpeg'])) ErrHandler::addErr('image format is not ok');
+    }
+}
+class ErrHandler
+{
+    static public $isPicOk = true;
+    static public $errors = [];
+    static public function addErr ($err) {
+        ErrHandler::$isPicOk = false;
+        array_push(ErrHandler::$errors, $err);
     }
 }

@@ -14,6 +14,12 @@ try {
 } catch(PDOException $e) {
   echo "Connection failed: " . $e->getMessage();
 }
+
+$group = $car["group"];
+$subgroup = $car["subgroup"];
+$fullName = $car["FullName"];
+$content = $car["content"];
+$content = json_decode($content);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +29,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <link href="./../../libs/bootstrap4.1/css/bootstrap.min.css" rel="stylesheet"/>
-    <title>c200 2011-2014</title>
+    <title><?= $fullName ?></title>
 </head>
 <body>
     <div class="container-flow">
@@ -35,7 +41,7 @@ try {
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
                 <a class="nav-item nav-link" href="./../search/search.php">search</a>
-                <a class="nav-item nav-link" href="./../admin/manipulate/manipulate.php">manipulate this</a>
+                <a class="nav-item nav-link" href="./../admin/manipulate/manipulate.php?car=<?= $fullName ?>">manipulate this</a>
               </div>
             </div>
           </nav>
@@ -91,11 +97,6 @@ try {
     <script src="./../../libs/jquery.js"></script>
     <script src="./../../libs/bootstrap4.1/js/bootstrap.min.js"></script>
     <?php
-    $group = $car["group"];
-    $subgroup = $car["subgroup"];
-    $fullName = $car["FullName"];
-    $content = $car["content"];
-    $content = json_decode($content);
     $table = $content->table;
     $columns = $table->columns;
     $pics = $content->pics;
@@ -118,7 +119,7 @@ try {
     }
 
     $kasebItemsArray;
-    if ($kasebItems != "") {
+    if ($kasebItems != "" && $kasebItems != []) {
         $kasebItemsArray = '[';
         foreach ($kasebItems as $key => $kasebItem) {
             if ($key === array_key_last($kasebItems)) {
@@ -178,7 +179,7 @@ try {
         var car1 = {
             carName: "<?= $fullName ?>",
             pics: <?= $picsArray ?>,
-            explanation: "<?= $explanation ?>",
+            explanation: `<?= $explanation ?>`,
             kasebiItems: <?= $kasebItemsArray ?>,
             table: {
                 columns: <?= $columnsArray ?>,

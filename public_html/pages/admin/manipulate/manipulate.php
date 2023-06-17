@@ -14,6 +14,18 @@ try {
 } catch(PDOException $e) {
   echo "Connection failed: " . $e->getMessage();
 }
+$group = $car["group"];
+$subgroup = $car["subgroup"];
+$fullName = $car["FullName"];
+$content = $car["content"];
+$content = json_decode($content);
+$table = $content->table;
+$columns = $table->columns;
+$pics = $content->pics;
+$explanation = $content->explanation;
+$kasebItems = $content->kasebiItems;
+$deletedCols = $table->deletedCols;
+$rows = $table->rows;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,11 +36,12 @@ try {
     <script src="./../../../libs/jquery.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <link rel="stylesheet" href="./../../../libs/summernote/summernote-bs4.min.css">
+    <script src="./../../../libs/summernote/summernote-bs4.min.js"></script>
     <link href="./../../../libs/bootstrap4.1/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="./manipulate.css" rel="stylesheet"/>
-    <title>c200 2011-2014</title>
+    <script src="./../../../libs/summernote/summernote.js"></script>
+    <title><?= $fullName ?></title>
 </head>
 <body>
     <div class="container-fluid">
@@ -41,7 +54,7 @@ try {
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                   <div class="navbar-nav">
                     <a class="nav-item nav-link" href="./../../search/search.php">search</a>
-                    <a class="nav-item nav-link" href="#">go to this car</a>
+                    <a class="nav-item nav-link" href="<?php echo $root . "pages/car/car.php?car=" . $fullName ?>">go to this car</a>
                   </div>
                 </div>
             </nav>
@@ -50,7 +63,7 @@ try {
             <h2 id="carName" class="w-100 bg-dark text-center text-info p-2">car name</h2>
         </div>
         <div class="row d-flex justify-content-center">
-            <div id="imgs" class="row px-5 py-2" style="justify-content: space-around;">
+            <div id="imgs" class="row w-100 px-5 py-2" style="justify-content: space-around;">
     
             </div>
         </div>
@@ -59,14 +72,14 @@ try {
             <input type="file" id="imgupload" style="display:none"/>
         </div>
         <div class="row d-flex justify-content-center">
-            <div class="col-lg-8 mb-2">
+            <div class="col-lg-12 mb-2">
                 <div id="summernote"></div>
             </div>
         </div>
         <div class="row d-flex justify-content-center">
             <div class="col-lg-12 p-0">
-                <p id="kasebiItemsContainer" class="text-white text-right bg-secondary" style="border: 1px solid #999; border-radius: 5px; padding: 10px;">
-                    <span id="kasebiItems" class="bg-dark text-danger d-inline-block w-100 p-2 mb-3 rounded" style="font-weight: bold;">
+                <p id="kasebiItemsContainer" class="text-white text-right bg-dark" style="border: 1px solid #999; border-radius: 5px; padding: 10px;">
+                    <span id="kasebiItems" class="bg-dark text-light d-inline-block w-100 p-2 mb-3 rounded" style="font-weight: bold;">
                         موارد خرید کاسبی
                     </span>
 
@@ -78,12 +91,14 @@ try {
             </div>
         </div>
         <div class="row d-flex justify-content-center">
-            <div class="col-lg-8 mb-2 p-0">
+            <div class="col-lg-12 mb-2 p-0">
                 <div class="text-white text-right bg-dark" style="border: 1px solid #999; border-radius: 5px; padding: 10px;">
-                    <span class="bg-white text-dark d-inline-block w-100 p-2 mb-3 rounded" style="font-weight: bold;">
+                    <span class="bg-dark text-light d-inline-block w-100 p-2 mb-3 rounded" style="font-weight: bold;">
                         جدول موارد بازدید شده
                     </span>
                     <span tabindex="-1" id="addRow" class="btn-sm btn-primary ">اضافه کردن سطر</span>
+                    <span id="moverow" class="btn-sm btn-secondary">جابجایی سطر ها</span>
+                    <span id="highlight" class="btn-sm btn-secondary">مقایسه سطر ها</span>
                 </div>
                 <div class="p-2 bg-dark text-white">
                     <table id="table" class="table table-bordered table-responsive">
@@ -93,8 +108,11 @@ try {
             </div>
         </div>
         <div class="row d-flex justify-content-center">
-            <div class="col-lg-8 px-3">
-                <div class="w-100 btn btn-primary mb-3">save</div>
+            <div class="col-lg-12 px-3">
+                <div id="saveBtn" class="w-100 btn btn-primary mb-3">save</div> 
+                <!-- lets check pics of car object
+                upload pics
+                update whole record -->
             </div>
         </div>
     </div>
@@ -139,25 +157,14 @@ try {
                     <input type="text" class="w-100 my-1 p-1 rounded d-inline-block"/>
                     <input type="text" class="w-100 my-1 p-1 rounded d-inline-block"/>
                     <input type="text" class="w-100 my-1 p-1 rounded d-inline-block"/>
-                    <div class="btn btn-primary my-2 w-100">save</div>
+                    <div class="btn btn-primary my-2 w-100">savexxx</div>
                 </div>
             </div>
         </div>
     </div>
     <script src="./../../../libs/bootstrap4.1/js/bootstrap.min.js"></script>
     <?php
-    $group = $car["group"];
-    $subgroup = $car["subgroup"];
-    $fullName = $car["FullName"];
-    $content = $car["content"];
-    $content = json_decode($content);
-    $table = $content->table;
-    $columns = $table->columns;
-    $pics = $content->pics;
-    $explanation = $content->explanation;
-    $kasebItems = $content->kasebiItems;
-    $deletedCols = $table->deletedCols;
-    $rows = $table->rows;
+
 
     $picsArray = "[";
     if ($pics != "") {
@@ -173,7 +180,7 @@ try {
     }
 
     $kasebItemsArray;
-    if ($kasebItems != "") {
+    if ($kasebItems != "" && $kasebItems != []) {
         $kasebItemsArray = '[';
         foreach ($kasebItems as $key => $kasebItem) {
             if ($key === array_key_last($kasebItems)) {
@@ -233,7 +240,7 @@ try {
         var car1 = {
             carName: "<?= $fullName ?>",
             pics: <?= $picsArray ?>,
-            explanation: "<?= $explanation ?>",
+            explanation: `<?= $explanation ?>`,
             kasebiItems: <?= $kasebItemsArray ?>,
             table: {
                 columns: <?= $columnsArray ?>,
@@ -241,10 +248,15 @@ try {
                 rows: <?= $rowsArray ?>
             }
         };
+        var root = "<?= $root ?>"
     </script>
     <script src="./manipulate.js"></script>
     <script>
-      car.initPage(); 
+        car.initPage();
+        car.group = "<?= $group ?>";
+        car.subgroup = "<?= $subgroup ?>";
+        let update = new Update(car);
+        // $('#saveBtn')[0].click();
     </script>
 </body>
 </html>

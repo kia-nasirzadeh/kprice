@@ -24,10 +24,14 @@ class Search {
   }
   searchInputChange (oldThis) {
     let val = $(oldThis.target).val();
-    console.log(val);
-    if (val == "") this.needle = false;
-    else this.needle = val;
-    this.getSearchResult();
+    if (val == "") {
+      this.needle = false;
+      this.displayResults('');
+    }
+    else {
+      this.needle = val;
+      this.getSearchResult();
+    }
   }
   getSearchResult () {
     if (!this.needle) return false;
@@ -41,14 +45,14 @@ class Search {
     });
   }
   displayResults (res) {
-    if (this.needle == '') {
+    if (!this.needle) {
+      $(this.outputDiv).html(oldresults);
     } else {
       $(this.outputDiv).empty();
       res = JSON.parse(res);
       for (let item of res) {
-        console.log(item);
         $(this.outputDiv).append(`
-          <a href="#<?= $carName ?>" class="list-group-item" data-toggle="collapse">
+          <a href="${root}pages/car/car.php?car=${item.FullName}" class="list-group-item">
             <i class="glyphicon glyphicon-search"></i>${item.FullName}
           </a>
         `);

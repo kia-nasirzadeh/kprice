@@ -54,7 +54,7 @@ try {
                                 <?php
                                 foreach ($carTypesArray as $carType) {
                                 ?>
-                                    <a href="./../car/car.php?car=<?= $carName . '-' . $carType ?>" class="list-group-item"><?= $carType ?></a>
+                                    <a href="<?= $root ?>pages/car/car.php?car=<?= $carName . '-' . $carType ?>" class="list-group-item"><?= $carType ?></a>
                                 <?php
                                 }
                                 ?>
@@ -75,7 +75,9 @@ try {
     <script src="./../../libs/jquery.js"></script>
     <script src="./../../libs/bootstrap-3.3.5/dist/js/bootstrap.min.js"></script>
     <script>
-        var searchAPI = "<?= $searchApi ?>"
+        var searchAPI = "<?= $searchApi ?>";
+        var root = "<?= $root ?>";
+        var oldresults = $('#mainListDiv').html();
     </script>
     <script src="./search.js"></script>
 </body>
