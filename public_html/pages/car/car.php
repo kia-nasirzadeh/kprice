@@ -34,15 +34,16 @@ $content = json_decode($content);
 <body>
     <div class="container-fluid">
         <div class="row">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="w-100 navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#">Afraz Inc.</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="./../search/search.php">search</a>
-                    <a class="nav-item nav-link" href="./../admin/manipulate/manipulate.php?car=<?= $fullName ?>">manipulate this</a>
+                    <a class="nav-item nav-link ml-1 mb-1 p-1" style="border: 1px solid #999;border-radius:3px" href="./../search/search.php">search</a>
+                    <a class="nav-item nav-link ml-1 mb-1 p-1" style="border: 1px solid #999;border-radius:3px" href="./../admin/manipulate/manipulate.php?car=<?= $fullName ?>">manipulate this car</a>
+                    <a class="nav-item nav-link ml-1 mb-1 p-1" style="border: 1px solid #999;border-radius:3px" href="./../admin/admin/admin.php">admin panel</a>
                 </div>
                 </div>
             </nav>

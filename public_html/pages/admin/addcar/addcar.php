@@ -1,5 +1,19 @@
 <?php
-require_once __DIR__ . './../../../libs/dbhandler.php';
+require_once './../../../config.php';
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbName", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "SELECT * FROM cars";
+
+    $statement = $conn->query($sql);
+    $dbCars = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $carsToShow = [];
+    foreach ($dbCars as $car) {
+        $carsToShow[$car["group"]][] = $car["subgroup"];
+    }
+} catch(PDOException $e) {
+  echo "Connection failed: " . $e->getMessage();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,26 +56,36 @@ require_once __DIR__ . './../../../libs/dbhandler.php';
         </div>
         <div class="row">
             <div class="col-12 my-1">
-                <div class="list-group list-group-root well">
-                    <a href="#c200" class="list-group-item" data-toggle="collapse">
-                        <i class="glyphicon glyphicon-chevron-right"></i>c200
-                    </a>
-                    <div data-group="c200" class="list-group collapse" id="c200">
-                        <a href="#" class="list-group-item">c200-2011-2014</a>
-                        <a href="#" class="list-group-item">c200-2011-2014</a>
-                    </div>
-                    <a href="#clk" class="list-group-item" data-toggle="collapse">
-                        <i class="glyphicon glyphicon-chevron-right"></i>clk
-                    </a>
-                    <div data-group="clk" class="list-group collapse" id="clk">
-                        <a href="#" class="list-group-item">clk-2008-2009</a>
-                    </div>
+                <div id="mainListDiv" class="list-group list-group-root well">
+                    <?php
+                    foreach ($carsToShow as $carName => $carTypesArray) {
+                    ?>
+                        <a href="#<?= $carName ?>" class="list-group-item" data-toggle="collapse">
+                            <i class="glyphicon glyphicon-chevron-right"></i><?= $carName ?>
+                        </a>
+                        <div class="list-group collapse" id="<?= $carName ?>">
+                            <?php
+                            foreach ($carTypesArray as $carType) {
+                            ?>
+                                <a href="<?= $root ?>pages/car/car.php?car=<?= $carName . '-' . $carType ?>" class="list-group-item"><?= $carType ?></a>
+                            <?php
+                            }
+                            ?>
+                        </div>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
     </div>
     <script src="./../../../libs/jquery.js"></script>
     <script src="./../../../libs/bootstrap-3.3.5/dist/js/bootstrap.min.js"></script>
+    <script>
+        var searchAPI = "<?= $searchApi ?>";
+        var root = "<?= $root ?>";
+        var oldresults = $('#mainListDiv').html();
+    </script>
     <script src="./addcar.js"></script>
 </body>
 </html>
