@@ -622,7 +622,7 @@ class Update
 class XHR
 {
     getApiUrl () {
-        if (document.location.href.search('localhost')) return "http://localhost/dashboard/kprice/public_html"
+        if (document.location.href.search('localhost') != -1) return "http://localhost/dashboard/kprice/public_html"
         else return "http://park-wash.ir"
     }
     send (imgs, carName, updateClass) {
