@@ -639,6 +639,7 @@ class XHR
         }
         formdata.append('name', carName);
         let xhr = new XMLHttpRequest();
+        console.log(this.getApiUrl());
         xhr.open('post', `${this.getApiUrl()}/pages/admin/manipulate/uploadProcessor.php`);
         xhr.responseType = 'json';
         xhr.onloadend = this.loadEnd.bind(xhr, updateClass);
@@ -655,7 +656,7 @@ class XHR
         formdata.append('subgroup', subgroup);
         formdata.append('content', content);
         let xhr = new XMLHttpRequest();
-        xhr.open('post', `${this.getApiUrl()}/pages/admin/manipulate/updateProcessorx.php`);
+        xhr.open('post', `${this.getApiUrl()}/pages/admin/manipulate/updateProcessor.php`);
         xhr.responseType = 'json';
         xhr.onloadend = this.loadEnd2.bind(xhr, updateClass);
         xhr.onprogress = this.progress.bind(xhr);
