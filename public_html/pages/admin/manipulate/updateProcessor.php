@@ -4,3 +4,4 @@ require_once __DIR__ . './../../../libs/dbhandler.php';
 $dbhandler = new DbHandler();
 echo ($_POST['content']);
 //echo $dbhandler->updateRecord('fullname', $_POST['fullname'], $_POST['group'], $_POST['subgroup'], $_POST['content']);
+
