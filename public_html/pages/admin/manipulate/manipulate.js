@@ -649,6 +649,7 @@ class XHR
     }
     send2 (fullname, group, subgroup, content, updateClass) {
         console.log('gholi');
+        console.log(content);
         globalMsgs.addMsg('• فرایند اپدیت دیتابیس شروع شد');
         let formdata = new FormData();
         formdata.append('fullname', fullname);
