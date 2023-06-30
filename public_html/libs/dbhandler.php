@@ -106,6 +106,7 @@ class DbHandler {
             echo "stmt before execute";
             var_dump($stmt);
             $result = $stmt->execute();
+            var_dump($result);
             return json_encode(['ok' => true]);
         } else throw new Exception('in updateRecord in no if-else');
     }
