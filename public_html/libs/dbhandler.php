@@ -99,6 +99,8 @@ class DbHandler {
             $stmt = $this->dbh->prepare("UPDATE cars SET `group`=:group, `subgroup`=:subgroup, `content`=:content WHERE FullName=:key");
             $stmt->bindParam(':group', $group);
             $stmt->bindParam(':subgroup', $subgroup);
+            echo "content before bindparam";
+            echo $content;
             $stmt->bindParam(':content', $content);
             $stmt->bindParam(':key', $key);
             $result = $stmt->execute();
