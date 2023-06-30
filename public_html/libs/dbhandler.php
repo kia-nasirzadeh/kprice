@@ -104,7 +104,7 @@ class DbHandler {
             $stmt->bindParam(':content', $content);
             $stmt->bindParam(':key', $key);
             echo "stmt before execute";
-            echo $stmt;
+            var_dump($stmt);
             $result = $stmt->execute();
             return json_encode(['ok' => true]);
         } else throw new Exception('in updateRecord in no if-else');
