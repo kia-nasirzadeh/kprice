@@ -734,6 +734,8 @@ class XHR
             globalMsgs.goodEnd();
         }
         else {
+            console.log('this is xhr.response');
+            console.log(xhr.response);
             let errors = 'خطا های زیر رخ داده است<br>';
             for (let message of xhr.response) {
                 errors += message + '<br>';
