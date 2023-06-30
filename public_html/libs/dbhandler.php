@@ -96,7 +96,7 @@ class DbHandler {
             $result = $stmt->execute();
             return $result;
         } elseif ($by == 'fullname') {
-            $stmt = $this->dbh->prepare("UPDATE cars SET `group`=:group, `subgroup`=:subgroup, `content`=:content WHERE FullName=:key");
+            $stmt = $this->dbh->prepare("UPDATE cars SET `group`=:group, `subgroup`=:subgroup, `content`=':content' WHERE FullName=:key");
             $stmt->bindParam(':group', $group);
             $stmt->bindParam(':subgroup', $subgroup);
             echo "content before bindparam";
