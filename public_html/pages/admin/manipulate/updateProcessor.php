@@ -6,6 +6,6 @@ $fullname = htmlspecialchars($_POST['fullname']);
 $group = htmlspecialchars($_POST['group']);
 $subgroup = htmlspecialchars($_POST['subgroup']);
 $content = htmlspecialchars($_POST['content']);
-echo $dbhandler->updateRecord('fullname', $fullname, $group, $subgroup, $content);
+echo $dbhandler->updateRecord('fullname', $_POST['fullname'], $_POST['group'], $_POST['subgroup'], $_POST['content']);
 
 
