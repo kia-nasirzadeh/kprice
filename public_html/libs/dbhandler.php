@@ -83,6 +83,8 @@ class DbHandler {
         $fullname = $group . '-' . $subgroup;
         if (!$content = $this->populatePicsOfContent(true, $content, $fullname)) {
             echo "this is fucking problem1";
+            echo "new content";
+            echo $content;
             return json_encode(['ok' => false]);
         };
         if ($by == 'id') {
