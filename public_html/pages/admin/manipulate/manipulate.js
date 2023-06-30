@@ -721,6 +721,8 @@ class XHR
     }
     loadEnd2 (updateClass) {
         let xhr = this;
+        console.log('this is xhr in loadend 2:');
+        console.log(xhr);
         if (xhr.response == null) {
             globalMsgs.addMsg("❌مثل اینکه آفلاینی یا مشکلی هست!");
             globalMsgs.addMsg("❌فرایند اپدیت دیتابیس شکست خورد");
