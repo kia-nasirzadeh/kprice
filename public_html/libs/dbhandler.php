@@ -75,10 +75,16 @@ class DbHandler {
         } else throw new Exception('in deleteRecord in no if-else');
     }
     public function updateRecord($by, $key, $group, $subgroup, $content) {
-        if (!$this->recordExists($by, $key)) return json_encode(['ok' => false]);
+        if (!$this->recordExists($by, $key)) {
+            echo 'this is fucking problem2';
+            return json_encode(['ok' => false]);
+        }
         if ($content == '') $content = '{}';
         $fullname = $group . '-' . $subgroup;
-        if (!$content = $this->populatePicsOfContent(true, $content, $fullname)) return json_encode(['ok' => false]);
+        if (!$content = $this->populatePicsOfContent(true, $content, $fullname)) {
+            echo "this is fucking problem1";
+            return json_encode(['ok' => false]);
+        };
         if ($by == 'id') {
             $stmt = $this->dbh->prepare("UPDATE cars SET `group`=:group, `subgroup`=:subgroup, `content`=:content WHERE id=:key");
             $stmt->bindParam(':group', $group);
