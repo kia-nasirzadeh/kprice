@@ -5,6 +5,13 @@ function handleWarnings ($errno, $errstr) {
     echo "$errno\n";
     echo "$errstr\n";
 }
+// $dbhandler = new DbHandler();
+// $group = "<";
+// $subgroup = "🧊";
+// $content = "";
+// $result = $dbhandler->addRecord(htmlspecialchars($group), htmlspecialchars($subgroup), htmlspecialchars($content));
+// var_dump($result);
+
 class DbHandler {
     private $dbh;
     private $picsPath;
@@ -17,7 +24,7 @@ class DbHandler {
         $pdo_attrs = [ 
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ];
-        $this->dbh = new PDO("mysql:host=$servername;dbname=$dbName;charset=utf8", $username, $password, $pdo_attrs);
+        $this->dbh = new PDO("mysql:host=$servername;dbname=$dbName;charset=utf8mb4", $username, $password, $pdo_attrs);
     }
     public function getAllRecords ($how) {
         $stmt = $this->dbh->prepare("SELECT * FROM cars");
@@ -96,7 +103,7 @@ class DbHandler {
             $result = $stmt->execute();
             return $result;
         } elseif ($by == 'fullname') {
-            $stmt = $this->dbh->prepare("UPDATE cars SET `group`=:group, `subgroup`=:subgroup, `content`=':content' WHERE FullName=:key");
+            $stmt = $this->dbh->prepare("UPDATE cars SET `group`=:group, `subgroup`=:subgroup, `content`=:content WHERE FullName=:key");
             $stmt->bindParam(':group', $group);
             $stmt->bindParam(':subgroup', $subgroup);
             echo "content before bindparam";
