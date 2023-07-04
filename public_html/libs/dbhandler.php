@@ -5,14 +5,6 @@ function handleWarnings ($errno, $errstr) {
     echo "$errno\n";
     echo "$errstr\n";
 }
-$dbhandler = new DbHandler();
-$group = "<ققثثصصصص";
-$subgroup = "🧊";
-$content = "";
-// $result = $dbhandler->addRecord(htmlspecialchars($group), htmlspecialchars($subgroup), htmlspecialchars($content));
-$result = $dbhandler->addRecord($group, $subgroup, $content);
-var_dump($result);
-
 class DbHandler {
     private $dbh;
     private $picsPath;
@@ -25,7 +17,7 @@ class DbHandler {
         $pdo_attrs = [ 
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ];
-        $this->dbh = new PDO("mysql:host=$servername;dbname=$dbName;charset=utf8mb4;collate=utf8mb4_general_ci", $username, $password, $pdo_attrs);
+        $this->dbh = new PDO("mysql:host=$servername;dbname=$dbName;charset=utf8mb4", $username, $password, $pdo_attrs);
     }
     public function getAllRecords ($how) {
         $stmt = $this->dbh->prepare("SELECT * FROM cars");

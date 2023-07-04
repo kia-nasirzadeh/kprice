@@ -1,7 +1,7 @@
 <?php
 require_once './../../../config.php';
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbName", $username, $password);
+    $conn = new PDO("mysql:host=$servername;dbname=$dbName;charset=utf8mb4;", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     if (isset($_GET["car"])) {
       $car = $_GET["car"];
