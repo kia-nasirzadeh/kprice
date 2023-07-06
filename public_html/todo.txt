@@ -1,0 +1,12 @@
+1-✅car.php doesn't show 🧊
+2-✅manipulate.php can't add the new row after deleting a column, you should add a row
+3-✅edit a row you can not leave a field
+4-❌time consumer❌click on rtl after page load => just if explanation is empty
+5-✅all resources must be offline
+6-✅in addcar.php nav must be added
+7-✅after size more than 1mb and deleting picture, we have problem again
+8-✅del and add same pic makes problems
+8-❌time consumer❌problem in page height goes up and down when pics swaps, it should be okay by not auto change pics
+9-✅remove all errors in console
+10-✅add hosein list
+11- add a new car, then do not add a row and save, everything will fucked up

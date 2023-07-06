@@ -40,55 +40,18 @@ $content = json_decode($content);
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link ml-1 mb-1 p-1" style="border: 1px solid #999;border-radius:3px" href="./../search/search.php">search</a>
-                    <a class="nav-item nav-link ml-1 mb-1 p-1" style="border: 1px solid #999;border-radius:3px" href="./../admin/manipulate/manipulate.php?car=<?= $fullName ?>">manipulate this car</a>
+                    <a class="nav-item nav-link ml-1 mb-1 p-1" style="border: 1px solid #999;border-radius:3px" href="./../admin/manworkhours/manworkhours.php?car=<?= $fullName ?>">add work hours</a>
                     <a class="nav-item nav-link ml-1 mb-1 p-1" style="border: 1px solid #999;border-radius:3px" href="./../admin/admin/admin.php">admin panel</a>
                 </div>
                 </div>
             </nav>
         </div>
         <div class="row d-flex justify-content-center">
-            <div class="col-lg-6 mb-2">
-                <div id="carouselExampleControls" class="carousel slide" data-interval="false" style="border: 1px solid #999; border-radius: 5px; padding: 10px;">
-                    <div id="imgs" class="carousel-inner">
-
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-
-            </div>
-        </div>
-        <div class="row d-flex justify-content-center">
-            <div class="col-lg-12">
-                <p id="explanation" class="text-dark text-right" style="border: 1px solid #999; border-radius: 5px; padding: 10px;">
-                    
-                </p>
-            </div>
-        </div>
-        <div class="row d-flex justify-content-center">
-            <div class="col-lg-12 mb-2">
-                <p id="kasebiItemsContainer" class="text-white text-right bg-dark" style="border: 1px solid #999; border-radius: 5px; padding: 10px;">
-                    <span id="kasebiItems" class="bg-dark text-light d-inline-block w-100 p-2 mb-3 rounded" style="font-weight: bold;">
-                        خرید کاسبی
-                    </span>
-                </p>
-            </div>
-        </div>
-        <div class="row d-flex justify-content-center">
             <div class="col-lg-12 mb-2">
                 <div class="text-white text-right bg-dark" style="border: 1px solid #999; border-radius: 5px; padding: 10px;">
                     <span class="bg-dark text-light d-inline-block w-100 p-2 mb-3 rounded" style="font-weight: bold;">
-                        جدول موارد بازدید شده
+                        جدول ساعات کاری
                     </span>
-                    <span id="moverow" class="btn-sm btn-secondary" style="cursor: pointer">جابجایی سطر ها</span>
-                    <span id="highlight" class="btn-sm btn-secondary" style="cursor: pointer">مقایسه سطر ها</span>
                 </div>
                 <div class="p-2 bg-dark text-white">
                     <table id="table" class="table table-bordered table-responsive">
@@ -192,7 +155,7 @@ $content = json_decode($content);
             }
         };
     </script>
-    <script src="./car.js"></script>
+    <script src="./workhours.js"></script>
     <script>
       car.initPage();
     </script>

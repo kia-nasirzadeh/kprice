@@ -32,9 +32,9 @@
                     </a>
                 </div>
                 <div class="col-6 col-md-4 col-lg-3 p-1">
-                    <button href="./../../search/search.php" class="border w-100 text-center rounded px-1 py-3 btn btn-primary" id="add-car" disabled>
-                        manipulate a car
-                    </button>
+                    <a href="./../manworkhours/manworkhours.php?car=work-hours" class="border w-100 text-center rounded px-1 py-3 btn btn-primary" id="add-car">
+                        working hours
+                    </a>
                 </div>
                 <div class="col-6 col-md-4 col-lg-3 p-1">
                     <button class="border w-100 text-center rounded px-1 py-3 btn btn-primary" id="changePass" disabled>

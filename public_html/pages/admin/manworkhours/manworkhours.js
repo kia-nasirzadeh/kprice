@@ -1,4 +1,9 @@
 var stringifiedCar1 = JSON.stringify(car1);
+// edit row => 175 => temperary 201
+// del row => 180
+// del col => 152
+// sort col => 152
+// add col => 156
 var car = {
     car: {},
     carName: "",
@@ -143,12 +148,18 @@ var car = {
             `);
             var presentCols = car.table.getPresentCols();
             presentCols.forEach(col => {
+                // $("#table-head").append(`
+                //     <th>${col}<span class="delCol btn-sm btn-danger d-block text-center my-1">🗑️</span><span class="sortCol btn-sm btn-danger w-50 text-center my-1">⬇️</span><span class="sortColDesc btn-sm btn-danger w-50 text-center my-1">⬆️</span></th>
+                // `); // add column
                 $("#table-head").append(`
-                    <th>${col}<span class="delCol btn-sm btn-danger d-block text-center my-1">🗑️</span><span class="sortCol btn-sm btn-danger w-50 text-center my-1">⬇️</span><span class="sortColDesc btn-sm btn-danger w-50 text-center my-1">⬆️</span></th>
+                    <th>${col}</th>
                 `);
             })
+            // $("#table-head").append(`
+            //     <th><span id="addCol" class="d-block btn-sm btn-primary">add column + </span></th>
+            // `);
             $("#table-head").append(`
-                <th><span id="addCol" class="d-block btn-sm btn-primary">add column + </span></th>
+                <th></th>
             `);
             $("#table").append(`
                 <tbody id="table-body">
@@ -167,7 +178,8 @@ var car = {
                 presentCols.forEach(presentCol => {
                     tds += "<td>" + row[presentCol] + "</td>";
                 })
-                tds += `<td><span class="delRow btn-sm btn-danger">🗑️</span> <span class="editRow btn-sm btn-primary">✏️</span></td>`;
+                // tds += `<td><span class="delRow btn-sm btn-danger">🗑️</span> <span class="editRow btn-sm btn-primary">✏️</span></td>`; // del,edit row
+                tds += `<td></td>`;
                 if (rowColor == "black") {
                     $("#table-body").append(`
                         <tr data-rowindex="${index}" style="background-color: black;">
@@ -203,7 +215,13 @@ var car = {
                         let today = new Date().toLocaleDateString('fa-IR');
                         today = commonFuncs.textNumToEng(today);
                         today = today.replaceAll('/', '-');
-                        newRow += `<td><input data-colName="${col}" value="${today}" type="text"/></td>`;
+                        newRow += `<td><input data-colName="${col}" value="${today}" type="text" disabled/></td>`;
+                    } else if (col == 'hours') {
+                        let hours = 0;
+                        newRow += `<td><input data-colName="${col}" value="${hours}" type="text" disabled/></td>`;
+                    } else if (col == 'money') {
+                        let money = '0';
+                        newRow += `<td><input data-colName="${col}" value="${money}" type="text" disabled/></td>`;
                     } else {
                         newRow += `<td><input data-colName="${col}" type="text"/></td>`;
                     }
@@ -233,19 +251,43 @@ var car = {
                 });
                 $(".addRow").off().click(function () {
                     let thisRowTds = $(this).parents("tr").find("td");
+                    let alltrs = $(this).parents("table").find("tr");
                     let newRowDetails = "";
+                    let dayStart = 0;
+                    let dayEnd = 0;
                     for (let i = 0; i < thisRowTds.length; i++) {
                         if (i != thisRowTds.length - 1) {
                             let td_colName = $(thisRowTds[i]).find("input").attr("data-colname");
                             let td_val = $(thisRowTds[i]).find("input").val();
-                            if (i == thisRowTds.length - 2) {
-                                newRowDetails += `"${td_colName}":"${td_val}"`;
-                            } else {
-                                newRowDetails += `"${td_colName}":"${td_val}",`;
+                            if (td_colName == "start") dayStart = td_val;
+                            if (td_colName == 'end') dayEnd = td_val;
+                            if (td_colName == 'hours') {
+                                let hours = Number(dayEnd) - Number(dayStart);
                             }
-                            $(thisRowTds[i]).html(td_val);
+                            if (i == thisRowTds.length - 2) {
+                                // newRowDetails += `"${td_colName}":"${td_val}"`;
+                                
+                                newRowDetails += `"${td_colName}":"${td_val}"`;
+                                $(thisRowTds[i]).html(td_val);
+                            } else {
+                                if (td_colName == 'money') {
+                                    let hours = Math.floor(Number(dayEnd) - Number(dayStart));
+                                    let moneyInHour = 43750;
+                                    let money = Math.floor(Number(hours) * moneyInHour);
+                                    newRowDetails += `"${td_colName}":"${money}",`;
+                                    $(thisRowTds[i]).html(money);
+                                } else if (td_colName == 'hours') {
+                                    let hours = Math.floor(Number(dayEnd) - Number(dayStart));
+                                    newRowDetails += `"${td_colName}":"${hours}",`;
+                                    $(thisRowTds[i]).html(hours);
+                                }
+                                else {
+                                    newRowDetails += `"${td_colName}":"${td_val}",`;
+                                    $(thisRowTds[i]).html(td_val);
+                                }
+                            }
                         } else {
-                            $(thisRowTds[i]).html(`<span class="delRow btn-sm btn-danger">🗑️</span> <span class="editRow btn-sm btn-primary">✏️</span>`);
+                            $(thisRowTds[i]).html(`<span class="delRow btn-sm btn-danger">🗑️</span>`);
                         }
                     }
                     let newRow = `{${newRowDetails}}`;
@@ -267,6 +309,18 @@ var car = {
                         drawTable();
                         assignListeners();
                     });
+                    let totalmoney = 0;
+                    $(alltrs).each(function (i, tr) {
+                        if (i == 0) return;
+                        let rowsMoney = Number($(tr).find("td")[4].innerHTML)
+                        totalmoney += rowsMoney;
+                    });
+                    totalmoney = totalmoney.toLocaleString('en-US');
+                    $("#totalmoney").removeClass("d-none");
+                    $("#totalmoney").html(`
+                    کل حقوق تا اینجا شده ${totalmoney}
+                    تومان
+                    `);
                 });
                 $(".addRow").on("keydown", function (ev) {
                     if (ev.keyCode == 13) {

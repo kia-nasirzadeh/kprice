@@ -17,6 +17,11 @@ try {
 $group = $car["group"];
 $subgroup = $car["subgroup"];
 $fullName = $car["FullName"];
+if ($fullName != "work-hours") {
+    $errpageurl = $root . "pages/badpage/badpage.php?errcode=manworkhoursUrlIsNotOk";
+    header("Location: $errpageurl");
+    die();
+}
 $content = $car["content"];
 $content = json_decode($content);
 $table = $content->table;
@@ -39,7 +44,7 @@ $rows = $table->rows;
     <link rel="stylesheet" href="./../../../libs/summernote/summernote-bs4.min.css">
     <script src="./../../../libs/summernote/summernote-bs4.min.js"></script>
     <link href="./../../../libs/bootstrap4.1/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="./manipulate.css" rel="stylesheet"/>
+    <link href="./manworkhours.css" rel="stylesheet"/>
     <script src="./../../../libs/summernote/summernote.js"></script>
     <title><?= $fullName ?></title>
 </head>
@@ -54,7 +59,7 @@ $rows = $table->rows;
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                   <div class="navbar-nav">
                     <a class="nav-item nav-link" href="./../../search/search.php">search</a>
-                    <a class="nav-item nav-link" href="<?php echo $root . "pages/car/car.php?car=" . $fullName ?>">go to this car</a>
+                    <!-- <a class="nav-item nav-link" href="<?php //echo $root . "pages/workhours/workhours.php?car=" . $fullName ?>">see working hours</a> -->
                   </div>
                 </div>
             </nav>
@@ -62,21 +67,21 @@ $rows = $table->rows;
         <div class="row">
             <h2 id="carName" class="w-100 bg-dark text-center text-info p-2">car name</h2>
         </div>
-        <div class="row d-flex justify-content-center">
+        <div class="row d-none justify-content-center">
             <div id="imgs" class="row w-100 px-5 py-2" style="justify-content: space-around;">
     
             </div>
         </div>
-        <div class="row d-flex justify-content-center">
+        <div class="row d-none justify-content-center">
             <div id="addNewPhoto" class="btn btn-primary mb-2">add new photo</div>
             <input type="file" id="imgupload" style="display:none"/>
         </div>
-        <div class="row d-flex justify-content-center">
+        <div class="row d-none justify-content-center">
             <div class="col-lg-12 mb-2">
                 <div id="summernote"></div>
             </div>
         </div>
-        <div class="row d-flex justify-content-center">
+        <div class="row d-none justify-content-center">
             <div class="col-lg-12 p-0">
                 <p id="kasebiItemsContainer" class="text-white text-right bg-dark" style="border: 1px solid #999; border-radius: 5px; padding: 10px;">
                     <span id="kasebiItems" class="bg-dark text-light d-inline-block w-100 p-2 mb-3 rounded" style="font-weight: bold;">
@@ -94,11 +99,12 @@ $rows = $table->rows;
             <div class="col-lg-12 mb-2 p-0">
                 <div class="text-white text-right bg-dark" style="border: 1px solid #999; border-radius: 5px; padding: 10px;">
                     <span class="bg-dark text-light d-inline-block w-100 p-2 mb-3 rounded" style="font-weight: bold;">
-                        جدول موارد بازدید شده
+                        دستکاری ساعات کاری
                     </span>
-                    <span tabindex="-1" id="addRow" class="btn-sm btn-primary ">اضافه کردن سطر</span>
-                    <span id="moverow" class="btn-sm btn-secondary" style="cursor: pointer">جابجایی سطر ها</span>
-                    <span id="highlight" class="btn-sm btn-secondary" style="cursor: pointer">مقایسه سطر ها</span>
+                    <span tabindex="-1" id="addRow" class="btn-sm btn-primary ">اضافه کردن ساعت کاری</span>
+                    <span id="totalmoney" class="d-none bg-info px-5 py-1 rounded" style="cursor: pointer">کل حقوق تا اینجا شده </span>
+                    <!-- <span id="moverow" class="btn-sm btn-secondary" style="cursor: pointer">جابجایی سطر ها</span> -->
+                    <!-- <span id="highlight" class="btn-sm btn-secondary" style="cursor: pointer">مقایسه سطر ها</span> -->
                 </div>
                 <div class="p-2 bg-dark text-white">
                     <table id="table" class="table table-bordered table-responsive">
@@ -250,7 +256,7 @@ $rows = $table->rows;
         };
         var root = "<?= $root ?>"
     </script>
-    <script src="./manipulate.js"></script>
+    <script src="./manworkhours.js"></script>
     <script>
         car.initPage();
         car.group = "<?= $group ?>";

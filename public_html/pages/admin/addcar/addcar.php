@@ -30,7 +30,22 @@ try {
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 px-3 py-3 bg-light">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100">
+                <a href="#" class="navbar-brand">kPrice-Admin</a>
+                <span class="text-warning mr-2">hi kia/hossein</span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainnav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse" id="mainnav">
+                    <div class="navbar-nav">
+                        <a href="./../../search/search.php" class="nav-item nav-link">search</a>
+                        <a href="#" class="nav-itm nav-link" onclick="javascript:alert('لاگ سیستم هنوز درست نشده')">log-out</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-12 px-3 pb-3 mt-0 mb-3 bg-light">
                 <a href="./../admin/admin.php" class="btn btn-primary w-100">go to admin panel</a>
             </div>
         </div>

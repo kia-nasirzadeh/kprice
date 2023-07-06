@@ -99,14 +99,9 @@ class DbHandler {
             $stmt = $this->dbh->prepare("UPDATE cars SET `group`=:group, `subgroup`=:subgroup, `content`=:content WHERE FullName=:key");
             $stmt->bindParam(':group', $group);
             $stmt->bindParam(':subgroup', $subgroup);
-            echo "content before bindparam";
-            echo $content;
             $stmt->bindParam(':content', $content);
             $stmt->bindParam(':key', $key);
-            echo "stmt before execute";
-            var_dump($stmt);
             $result = $stmt->execute();
-            var_dump($result);
             return json_encode(['ok' => true]);
         } else throw new Exception('in updateRecord in no if-else');
     }
@@ -135,7 +130,11 @@ class DbHandler {
         $stmt->bindParam(':needle', $needle);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
+        $resultAfterRemovingWorkhours = [];
+        foreach ($result as $foundedCarArray) {
+            if ($foundedCarArray["FullName"] != "work-hours") $resultAfterRemovingWorkhours[] = $foundedCarArray;
+        }
+        return $resultAfterRemovingWorkhours;
     }
     public function addPics ($imgs, $targetDir, $carName, $delPicsArray) {
         $ok = true;
@@ -197,7 +196,7 @@ class DbHandler {
         $name = $carName . '-' . basename($imgFile['name']);
         $targetFile = $targetDir . DIRECTORY_SEPARATOR . $name;
         $format = pathinfo($targetFile, PATHINFO_EXTENSION);
-        if ($imgFile['size'] > 3000000) ErrHandler::addErr('size bigger than 1Mb');
+        if ($imgFile['size'] > 3000000) ErrHandler::addErr('size bigger than 3Mb');
         if ($imgFile['size'] <= 0) ErrHandler::addErr('size is zero or less!');
         if ($imgFile['error'] != 0) ErrHandler::addErr('$_FILES error is not 0');
         if (file_exists($targetFile)) ErrHandler::addErr('image already exists');

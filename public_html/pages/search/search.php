@@ -46,6 +46,7 @@ try {
                     <div id="mainListDiv" class="list-group list-group-root well">
                         <?php
                         foreach ($carsToShow as $carName => $carTypesArray) {
+                            if ($carName == "work") continue;
                         ?>
                             <a href="#<?= $carName ?>" class="list-group-item" data-toggle="collapse">
                                 <i class="glyphicon glyphicon-chevron-right"></i><?= $carName ?>
