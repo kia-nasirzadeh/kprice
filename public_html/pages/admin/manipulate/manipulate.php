@@ -237,11 +237,14 @@ $rows = $table->rows;
     }
     ?>
     <script>
+        let kasebItemsArrayToGoInCar1 = `<?= $kasebItemsArray ?>`;
+        kasebItemsArrayToGoInCar1 = kasebItemsArrayToGoInCar1.replace(/\s+/g, '');
+        
         var car1 = {
             carName: "<?= $fullName ?>",
             pics: <?= $picsArray ?>,
             explanation: `<?= $explanation ?>`,
-            kasebiItems: <?= $kasebItemsArray ?>,
+            kasebiItems: JSON.parse(kasebItemsArrayToGoInCar1),
             table: {
                 columns: <?= $columnsArray ?>,
                 deletedCols: <?= $deletedColsArray ?>,

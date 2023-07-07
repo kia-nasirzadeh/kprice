@@ -112,6 +112,7 @@ var car = {
             let today = new Date().toLocaleDateString('fa-IR');
             today = commonFuncs.textNumToEng(today);
             let fullExplanation = newKasebItemExplanation + "(" + today + ")";
+            fullExplanation = fullExplanation.trim();
             $("#kasebiItems").after(`
                 <span class="bg-primary d-inline-block w-75 p-2 mb-3 rounded" style="font-weight: 500;font-size: 0.75rem;">
                     ${fullExplanation}
@@ -740,8 +741,6 @@ class XHR
     }
     loadEnd2 (updateClass) {
         let xhr = this;
-        console.log('this is xhr in loadend 2:');
-        console.log(xhr);
         if (xhr.response == null) {
             globalMsgs.addMsg("❌مثل اینکه آفلاینی یا مشکلی هست!");
             globalMsgs.addMsg("❌فرایند اپدیت دیتابیس شکست خورد");
