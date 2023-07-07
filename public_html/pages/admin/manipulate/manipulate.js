@@ -164,8 +164,17 @@ var car = {
             car.table.rows.forEach((row, index) => {
                 if (index != 0 && index % 4 == 0) $("#table-body").append(headPartToRepeat);
                 var tds = ``;
+                let gheymat = 0;
+                let dollar = 0;
                 presentCols.forEach(presentCol => {
-                    tds += "<td>" + row[presentCol] + "</td>";
+                    if (presentCol == "gheymat") gheymat = row[presentCol];
+                    if (presentCol == "$") dollar = row[presentCol];
+                    if (presentCol == "gheymat/$") {
+                        let gheymatBeDollar = Math.floor(Number(gheymat)/Number(dollar)*1000);
+                        gheymatBeDollar = gheymatBeDollar.toLocaleString('en-Us');
+                        tds += "<td>" + gheymatBeDollar + "</td>";
+                    }
+                    else tds += "<td>" + row[presentCol] + "</td>";
                 })
                 tds += `<td><span class="delRow btn-sm btn-danger">🗑️</span> <span class="editRow btn-sm btn-primary">✏️</span></td>`;
                 if (rowColor == "black") {
@@ -234,16 +243,28 @@ var car = {
                 $(".addRow").off().click(function () {
                     let thisRowTds = $(this).parents("tr").find("td");
                     let newRowDetails = "";
+                    let gheymat = 0;
+                    let dollar = 0;
+                    let gheymatBeDollar = 0;
                     for (let i = 0; i < thisRowTds.length; i++) {
                         if (i != thisRowTds.length - 1) {
                             let td_colName = $(thisRowTds[i]).find("input").attr("data-colname");
                             let td_val = $(thisRowTds[i]).find("input").val();
-                            if (i == thisRowTds.length - 2) {
-                                newRowDetails += `"${td_colName}":"${td_val}"`;
-                            } else {
-                                newRowDetails += `"${td_colName}":"${td_val}",`;
+                            if (td_colName == "gheymat") gheymat = td_val;
+                            if (td_colName == "$") dollar = td_val;
+                            if (td_colName == "gheymat/$") {
+                                gheymatBeDollar = Math.floor(Number(gheymat)/Number(dollar)*1000);
+                                gheymatBeDollar = gheymatBeDollar.toLocaleString('en-US');
                             }
-                            $(thisRowTds[i]).html(td_val);
+                            if (i == thisRowTds.length - 2) {
+                                if (td_colName == "gheymat/$") newRowDetails += `"${td_colName}":"${gheymatBeDollar}"`;
+                                else newRowDetails += `"${td_colName}":"${td_val}"`;
+                            } else {
+                                if (td_colName == "gheymat/$") newRowDetails += `"${td_colName}":"${gheymatBeDollar}",`;
+                                else newRowDetails += `"${td_colName}":"${td_val}",`;
+                            }
+                            if (td_colName == "gheymat/$") $(thisRowTds[i]).html(gheymatBeDollar);
+                            else $(thisRowTds[i]).html(td_val);
                         } else {
                             $(thisRowTds[i]).html(`<span class="delRow btn-sm btn-danger">🗑️</span> <span class="editRow btn-sm btn-primary">✏️</span>`);
                         }
