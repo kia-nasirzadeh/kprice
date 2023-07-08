@@ -271,13 +271,13 @@ var car = {
                                 $(thisRowTds[i]).html(td_val);
                             } else {
                                 if (td_colName == 'money') {
-                                    let hours = Math.floor(Number(dayEnd) - Number(dayStart));
+                                    let hours = Number(dayEnd) - Number(dayStart);
                                     let moneyInHour = 43750;
                                     let money = Math.floor(Number(hours) * moneyInHour);
                                     newRowDetails += `"${td_colName}":"${money}",`;
                                     $(thisRowTds[i]).html(money);
                                 } else if (td_colName == 'hours') {
-                                    let hours = Math.floor(Number(dayEnd) - Number(dayStart));
+                                    let hours = Number(dayEnd) - Number(dayStart);
                                     newRowDetails += `"${td_colName}":"${hours}",`;
                                     $(thisRowTds[i]).html(hours);
                                 }
