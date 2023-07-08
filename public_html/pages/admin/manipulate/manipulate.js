@@ -112,6 +112,7 @@ var car = {
             let today = new Date().toLocaleDateString('fa-IR');
             today = commonFuncs.textNumToEng(today);
             let fullExplanation = newKasebItemExplanation + "(" + today + ")";
+            fullExplanation = fullExplanation.replace(/\s+/g, '');
             fullExplanation = fullExplanation.trim();
             $("#kasebiItems").after(`
                 <span class="bg-primary d-inline-block w-75 p-2 mb-3 rounded" style="font-weight: 500;font-size: 0.75rem;">

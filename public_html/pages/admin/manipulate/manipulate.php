@@ -55,6 +55,7 @@ $rows = $table->rows;
                   <div class="navbar-nav">
                     <a class="nav-item nav-link" href="./../../search/search.php">search</a>
                     <a class="nav-item nav-link" href="<?php echo $root . "pages/car/car.php?car=" . $fullName ?>">go to this car</a>
+                    <a class="nav-item nav-link" href="<?php echo $root . "pages/admin/admin/admin.php" ?>">admin panel</a>
                   </div>
                 </div>
             </nav>
